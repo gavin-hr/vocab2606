@@ -404,301 +404,329 @@
     </section>
   </main>
 
-  <script>
-    const questions = [
-      {
-        level: 1,
-        band: "前 1,000 字族",
-        word: "borrow",
-        sentence: "Can I borrow your pen for a minute?",
-        options: ["借用", "購買", "丟棄", "修理"],
-        answer: "借用"
-      },
-      {
-        level: 2,
-        band: "1,001–2,000 字族",
-        word: "avoid",
-        sentence: "You should avoid drinking too much coffee at night.",
-        options: ["避免", "享受", "安排", "邀請"],
-        answer: "避免"
-      },
-      {
-        level: 3,
-        band: "2,001–3,000 字族",
-        word: "require",
-        sentence: "This job requires good communication skills.",
-        options: ["需要", "拒絕", "比較", "保存"],
-        answer: "需要"
-      },
-      {
-        level: 4,
-        band: "3,001–4,000 字族",
-        word: "consequence",
-        sentence: "Every decision has a consequence.",
-        options: ["後果", "收入", "地點", "證據"],
-        answer: "後果"
-      },
-      {
-        level: 5,
-        band: "4,001–5,000 字族",
-        word: "retain",
-        sentence: "The company tried to retain its best employees.",
-        options: ["留住", "懲罰", "模仿", "取消"],
-        answer: "留住"
-      },
-      {
-        level: 6,
-        band: "5,001–6,000 字族",
-        word: "reluctant",
-        sentence: "She was reluctant to talk about the problem.",
-        options: ["不情願的", "興奮的", "準確的", "昂貴的"],
-        answer: "不情願的"
-      },
-      {
-        level: 7,
-        band: "6,001–7,000 字族",
-        word: "subtle",
-        sentence: "There was a subtle difference between the two designs.",
-        options: ["細微的", "吵雜的", "危險的", "正式的"],
-        answer: "細微的"
-      },
-      {
-        level: 8,
-        band: "7,001–8,000 字族",
-        word: "resilient",
-        sentence: "A resilient person can recover quickly from difficulties.",
-        options: ["有復原力的", "粗心的", "短暫的", "依賴的"],
-        answer: "有復原力的"
-      },
-      {
-        level: 9,
-        band: "8,001–9,000 字族",
-        word: "ambiguous",
-        sentence: "The instructions were ambiguous, so many people were confused.",
-        options: ["模糊不清的", "非常嚴格的", "完全相同的", "值得信任的"],
-        answer: "模糊不清的"
-      },
-      {
-        level: 10,
-        band: "9,001–10,000 字族",
-        word: "meticulous",
-        sentence: "The editor made a meticulous review of the report.",
-        options: ["一絲不苟的", "衝動的", "臨時的", "無關的"],
-        answer: "一絲不苟的"
-      }
-    ];
+<script>
+  const questions = [
+    {
+      level: 1,
+      band: "前 1,000 字族",
+      word: "borrow",
+      partOfSpeech: "verb",
+      sentence: "Can I borrow your pen for a minute?",
+      options: ["借用", "歸還", "保留", "交換"],
+      answer: "借用"
+    },
+    {
+      level: 2,
+      band: "1,001–2,000 字族",
+      word: "avoid",
+      partOfSpeech: "verb",
+      sentence: "You should avoid drinking too much coffee at night.",
+      options: ["避免", "延遲", "允許", "忍受"],
+      answer: "避免"
+    },
+    {
+      level: 3,
+      band: "2,001–3,000 字族",
+      word: "require",
+      partOfSpeech: "verb",
+      sentence: "This job requires good communication skills.",
+      options: ["需要", "取得", "限制", "確認"],
+      answer: "需要"
+    },
+    {
+      level: 4,
+      band: "3,001–4,000 字族",
+      word: "consequence",
+      partOfSpeech: "noun",
+      sentence: "Every decision has a consequence.",
+      options: ["後果", "原因", "條件", "過程"],
+      answer: "後果"
+    },
+    {
+      level: 5,
+      band: "4,001–5,000 字族",
+      word: "retain",
+      partOfSpeech: "verb",
+      sentence: "The company tried to retain its best employees.",
+      options: ["保留", "取代", "分配", "延伸"],
+      answer: "保留"
+    },
+    {
+      level: 6,
+      band: "5,001–6,000 字族",
+      word: "reluctant",
+      partOfSpeech: "adjective",
+      sentence: "She was reluctant to talk about the problem.",
+      options: ["不情願的", "不穩定的", "不熟悉的", "不成熟的"],
+      answer: "不情願的"
+    },
+    {
+      level: 7,
+      band: "6,001–7,000 字族",
+      word: "subtle",
+      partOfSpeech: "adjective",
+      sentence: "There was a subtle difference between the two designs.",
+      options: ["細微的", "間接的", "隱藏的", "複雜的"],
+      answer: "細微的"
+    },
+    {
+      level: 8,
+      band: "7,001–8,000 字族",
+      word: "resilient",
+      partOfSpeech: "adjective",
+      sentence: "A resilient person can recover quickly from difficulties.",
+      options: ["有復原力的", "有依賴性的", "有攻擊性的", "有說服力的"],
+      answer: "有復原力的"
+    },
+    {
+      level: 9,
+      band: "8,001–9,000 字族",
+      word: "ambiguous",
+      partOfSpeech: "adjective",
+      sentence: "The instructions were ambiguous, so many people were confused.",
+      options: ["模糊不清的", "矛盾衝突的", "未經證實的", "過度簡化的"],
+      answer: "模糊不清的"
+    },
+    {
+      level: 10,
+      band: "9,001–10,000 字族",
+      word: "meticulous",
+      partOfSpeech: "adjective",
+      sentence: "The editor made a meticulous review of the report.",
+      options: ["一絲不苟的", "反覆無常的", "過度保守的", "難以理解的"],
+      answer: "一絲不苟的"
+    }
+  ];
 
-    let currentQuestionIndex = 0;
-    let userAnswers = [];
+  let currentQuestionIndex = 0;
+  let userAnswers = [];
 
-    function startQuiz() {
-      currentQuestionIndex = 0;
-      userAnswers = [];
-      document.getElementById("startPage").classList.add("hidden");
-      document.getElementById("resultPage").classList.add("hidden");
-      document.getElementById("quizPage").classList.remove("hidden");
+  function shuffleArray(array) {
+    const copiedArray = [...array];
+
+    for (let i = copiedArray.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      [copiedArray[i], copiedArray[randomIndex]] = [copiedArray[randomIndex], copiedArray[i]];
+    }
+
+    return copiedArray;
+  }
+
+  function startQuiz() {
+    currentQuestionIndex = 0;
+    userAnswers = [];
+    document.getElementById("startPage").classList.add("hidden");
+    document.getElementById("resultPage").classList.add("hidden");
+    document.getElementById("quizPage").classList.remove("hidden");
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = questions[currentQuestionIndex];
+
+    document.getElementById("questionCounter").textContent =
+      `第 ${currentQuestionIndex + 1} / ${questions.length} 題`;
+
+    const percent = Math.round(((currentQuestionIndex + 1) / questions.length) * 100);
+    document.getElementById("progressPercent").textContent = `${percent}%`;
+    document.getElementById("progressFill").style.width = `${percent}%`;
+
+    document.getElementById("levelBadge").textContent = `Level ${q.level}`;
+    document.getElementById("frequencyBadge").textContent = `${q.band}｜${q.partOfSpeech}`;
+    document.getElementById("word").textContent = q.word;
+
+    // 關鍵修正：測驗時不顯示例句，避免從上下文猜答案
+    document.getElementById("sentence").textContent =
+      "請根據你對這個單字本身的理解，選出最接近的中文意思。例句會在測驗完成後顯示。";
+
+    const optionsEl = document.getElementById("options");
+    optionsEl.innerHTML = "";
+
+    const shuffledOptions = shuffleArray(q.options);
+
+    shuffledOptions.forEach(option => {
+      const button = document.createElement("button");
+      button.className = "option";
+      button.textContent = option;
+      button.onclick = () => selectAnswer(option);
+      optionsEl.appendChild(button);
+    });
+  }
+
+  function selectAnswer(selectedOption) {
+    const q = questions[currentQuestionIndex];
+
+    userAnswers.push({
+      question: q,
+      selected: selectedOption,
+      isCorrect: selectedOption === q.answer
+    });
+
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex++;
       renderQuestion();
+    } else {
+      showResult();
     }
+  }
 
-    function renderQuestion() {
-      const q = questions[currentQuestionIndex];
+  function calculateResult() {
+    const correctTotal = userAnswers.filter(a => a.isCorrect).length;
 
-      document.getElementById("questionCounter").textContent =
-        `第 ${currentQuestionIndex + 1} / ${questions.length} 題`;
-
-      const percent = Math.round(((currentQuestionIndex + 1) / questions.length) * 100);
-      document.getElementById("progressPercent").textContent = `${percent}%`;
-      document.getElementById("progressFill").style.width = `${percent}%`;
-
-      document.getElementById("levelBadge").textContent = `Level ${q.level}`;
-      document.getElementById("frequencyBadge").textContent = q.band;
-      document.getElementById("word").textContent = q.word;
-      document.getElementById("sentence").textContent = q.sentence;
-
-      const optionsEl = document.getElementById("options");
-      optionsEl.innerHTML = "";
-
-      q.options.forEach(option => {
-        const button = document.createElement("button");
-        button.className = "option";
-        button.textContent = option;
-        button.onclick = () => selectAnswer(option);
-        optionsEl.appendChild(button);
-      });
-    }
-
-    function selectAnswer(selectedOption) {
-      const q = questions[currentQuestionIndex];
-
-      userAnswers.push({
-        question: q,
-        selected: selectedOption,
-        isCorrect: selectedOption === q.answer
-      });
-
-      if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
-        renderQuestion();
+    let stableLevel = 0;
+    for (const answer of userAnswers) {
+      if (answer.isCorrect) {
+        stableLevel = answer.question.level;
       } else {
-        showResult();
+        break;
       }
     }
 
-    function calculateResult() {
-      const correctTotal = userAnswers.filter(a => a.isCorrect).length;
+    const higherCorrect = userAnswers.filter(a =>
+      a.question.level > stableLevel && a.isCorrect
+    ).length;
 
-      let stableLevel = 0;
-      for (const answer of userAnswers) {
-        if (answer.isCorrect) {
-          stableLevel = answer.question.level;
-        } else {
-          break;
-        }
-      }
+    let estimatedLow = stableLevel * 1000;
+    let estimatedHigh = estimatedLow + 1000;
 
-      const higherCorrect = userAnswers.filter(a =>
-        a.question.level > stableLevel && a.isCorrect
-      ).length;
+    // 高階題若答對，但前面低階題有錯，視為可能具備部分高階詞彙，但不完全採計
+    estimatedHigh += higherCorrect * 400;
 
-      let estimatedLow = stableLevel * 1000;
-      let estimatedHigh = estimatedLow + 1000;
+    if (correctTotal >= 8) {
+      estimatedLow = Math.max(estimatedLow, 8000);
+      estimatedHigh = 10000;
+    }
 
-      estimatedHigh += higherCorrect * 400;
+    if (correctTotal <= 2) {
+      estimatedLow = 0;
+      estimatedHigh = 2500;
+    }
 
-      if (correctTotal >= 8) {
-        estimatedLow = Math.max(estimatedLow, 8000);
-        estimatedHigh = 10000;
-      }
+    estimatedLow = Math.max(0, Math.round(estimatedLow / 500) * 500);
+    estimatedHigh = Math.min(10000, Math.round(estimatedHigh / 500) * 500);
 
-      if (correctTotal <= 2) {
-        estimatedLow = 0;
-        estimatedHigh = 2500;
-      }
+    return {
+      correctTotal,
+      stableLevel,
+      estimatedLow,
+      estimatedHigh
+    };
+  }
 
-      estimatedLow = Math.max(0, Math.round(estimatedLow / 500) * 500);
-      estimatedHigh = Math.min(10000, Math.round(estimatedHigh / 500) * 500);
-
+  function getResultProfile(low, high, correctTotal) {
+    if (high <= 2500) {
       return {
-        correctTotal,
-        stableLevel,
-        estimatedLow,
-        estimatedHigh
+        label: "基礎入門",
+        description: "你目前掌握的是較基礎的英文詞彙，適合先強化生活常用單字、基礎動詞與常見形容詞。",
+        advice: "建議從最高頻的 2,000 個核心單字開始，搭配簡短例句學習，不要只背中文意思。",
+        goal: "先累積 2,000 核心字"
       };
     }
 
-    function getResultProfile(low, high, correctTotal) {
-      if (high <= 2500) {
-        return {
-          label: "基礎入門",
-          description: "你目前掌握的是較基礎的英文詞彙，適合先強化生活常用單字、基礎動詞與常見形容詞。",
-          advice: "建議從最高頻的 2,000 個核心單字開始，搭配簡短例句學習，不要只背中文意思。",
-          goal: "先累積 2,000 核心字"
-        };
-      }
-
-      if (high <= 4500) {
-        return {
-          label: "初中階學習者",
-          description: "你已具備一定的基礎詞彙量，可以理解簡單文章與日常英文，但遇到抽象詞或職場文章時可能會卡住。",
-          advice: "建議強化 3,000–4,000 字族，尤其是常見動詞、片語與抽象名詞。",
-          goal: "提升到 4,000 字族"
-        };
-      }
-
-      if (high <= 6500) {
-        return {
-          label: "中階閱讀者",
-          description: "你大約具備閱讀一般英文文章與職場英文的基礎能力，但在新聞、商業文章或長篇文本中仍可能遇到不少低頻詞。",
-          advice: "建議閱讀英文新聞、商業文章與 TED transcript，並累積搭配詞與片語用法。",
-          goal: "提升到 6,000 字族"
-        };
-      }
-
-      if (high <= 8500) {
-        return {
-          label: "中高階閱讀者",
-          description: "你的詞彙量已能支撐較多英文閱讀情境，包括新聞、商業內容與部分專業文章。",
-          advice: "建議開始整理低頻但實用的抽象名詞、學術動詞與職場常見表達。",
-          goal: "提升到 8,000 字族"
-        };
-      }
-
+    if (high <= 4500) {
       return {
-        label: "高階閱讀者",
-        description: "你的英文詞彙理解能力相當不錯，已接近能處理複雜文本的程度。不過本測驗只有 10 題，若要精準判斷仍需要更完整的測驗。",
-        advice: "建議閱讀長篇評論、研究摘要、專業報告，並補強語境判斷與精準用字。",
-        goal: "挑戰專業文本"
+        label: "初中階學習者",
+        description: "你已具備一定的基礎詞彙量，可以理解簡單文章與日常英文，但遇到抽象詞或職場文章時可能會卡住。",
+        advice: "建議強化 3,000–4,000 字族，尤其是常見動詞、片語與抽象名詞。",
+        goal: "提升到 4,000 字族"
       };
     }
 
-    function showResult() {
-      document.getElementById("quizPage").classList.add("hidden");
-      document.getElementById("resultPage").classList.remove("hidden");
-
-      const result = calculateResult();
-      const profile = getResultProfile(
-        result.estimatedLow,
-        result.estimatedHigh,
-        result.correctTotal
-      );
-
-      document.getElementById("resultLabel").textContent = profile.label;
-      document.getElementById("resultNumber").textContent =
-        `約 ${result.estimatedLow.toLocaleString()}–${result.estimatedHigh.toLocaleString()} 字族`;
-
-      document.getElementById("resultDescription").textContent = profile.description;
-      document.getElementById("studyAdvice").textContent = profile.advice;
-      document.getElementById("correctCount").textContent =
-        `${result.correctTotal} / ${questions.length}`;
-      document.getElementById("stableLevel").textContent =
-        `Level ${result.stableLevel}`;
-      document.getElementById("nextGoal").textContent = profile.goal;
-
-      renderAnswerReview();
+    if (high <= 6500) {
+      return {
+        label: "中階閱讀者",
+        description: "你大約具備閱讀一般英文文章與職場英文的基礎能力，但在新聞、商業文章或長篇文本中仍可能遇到不少低頻詞。",
+        advice: "建議閱讀英文新聞、商業文章與 TED transcript，並累積搭配詞與片語用法。",
+        goal: "提升到 6,000 字族"
+      };
     }
 
-    function renderAnswerReview() {
-      const reviewEl = document.getElementById("answerReview");
-      reviewEl.innerHTML = "";
-
-      userAnswers.forEach((item, index) => {
-        const div = document.createElement("div");
-        div.className = "review-item";
-
-        div.innerHTML = `
-          <div>
-            <strong>Q${index + 1}</strong><br />
-            <span class="${item.isCorrect ? "correct" : "wrong"}">
-              ${item.isCorrect ? "答對" : "答錯"}
-            </span>
-          </div>
-          <div>
-            <strong>${item.question.word}</strong>：${item.question.answer}<br />
-            <span>你的答案：${item.selected}</span>
-          </div>
-        `;
-
-        reviewEl.appendChild(div);
-      });
+    if (high <= 8500) {
+      return {
+        label: "中高階閱讀者",
+        description: "你的詞彙量已能支撐較多英文閱讀情境，包括新聞、商業內容與部分專業文章。",
+        advice: "建議開始整理低頻但實用的抽象名詞、學術動詞與職場常見表達。",
+        goal: "提升到 8,000 字族"
+      };
     }
 
-    function restartQuiz() {
-      startQuiz();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    return {
+      label: "高階閱讀者",
+      description: "你的英文詞彙理解能力相當不錯，已接近能處理複雜文本的程度。不過本測驗只有 10 題，若要精準判斷仍需要更完整的測驗。",
+      advice: "建議閱讀長篇評論、研究摘要、專業報告，並補強語境判斷與精準用字。",
+      goal: "挑戰專業文本"
+    };
+  }
 
-    function shareResult() {
-      const resultText = document.getElementById("resultNumber").textContent;
-      const label = document.getElementById("resultLabel").textContent;
+  function showResult() {
+    document.getElementById("quizPage").classList.add("hidden");
+    document.getElementById("resultPage").classList.remove("hidden");
 
-      const text = `我剛完成英文詞彙量快速估算測驗，結果是：${label}，${resultText}。`;
+    const result = calculateResult();
+    const profile = getResultProfile(
+      result.estimatedLow,
+      result.estimatedHigh,
+      result.correctTotal
+    );
 
-      navigator.clipboard.writeText(text).then(() => {
-        alert("結果文字已複製，可以貼到社群或訊息中。");
-      }).catch(() => {
-        alert("複製失敗，請手動複製結果。");
-      });
-    }
-  </script>
+    document.getElementById("resultLabel").textContent = profile.label;
+    document.getElementById("resultNumber").textContent =
+      `約 ${result.estimatedLow.toLocaleString()}–${result.estimatedHigh.toLocaleString()} 字族`;
+
+    document.getElementById("resultDescription").textContent = profile.description;
+    document.getElementById("studyAdvice").textContent = profile.advice;
+    document.getElementById("correctCount").textContent =
+      `${result.correctTotal} / ${questions.length}`;
+    document.getElementById("stableLevel").textContent =
+      `Level ${result.stableLevel}`;
+    document.getElementById("nextGoal").textContent = profile.goal;
+
+    renderAnswerReview();
+  }
+
+  function renderAnswerReview() {
+    const reviewEl = document.getElementById("answerReview");
+    reviewEl.innerHTML = "";
+
+    userAnswers.forEach((item, index) => {
+      const div = document.createElement("div");
+      div.className = "review-item";
+
+      div.innerHTML = `
+        <div>
+          <strong>Q${index + 1}</strong><br />
+          <span class="${item.isCorrect ? "correct" : "wrong"}">
+            ${item.isCorrect ? "答對" : "答錯"}
+          </span>
+        </div>
+        <div>
+          <strong>${item.question.word}</strong>：${item.question.answer}<br />
+          <span>你的答案：${item.selected}</span><br />
+          <span>例句：${item.question.sentence}</span>
+        </div>
+      `;
+
+      reviewEl.appendChild(div);
+    });
+  }
+
+  function restartQuiz() {
+    startQuiz();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function shareResult() {
+    const resultText = document.getElementById("resultNumber").textContent;
+    const label = document.getElementById("resultLabel").textContent;
+
+    const text = `我剛完成英文詞彙量快速估算測驗，結果是：${label}，${resultText}。`;
+
+    navigator.clipboard.writeText(text).then(() => {
+      alert("結果文字已複製，可以貼到社群或訊息中。");
+    }).catch(() => {
+      alert("複製失敗，請手動複製結果。");
+    });
+  }
+</script>
 </body>
 </html>
