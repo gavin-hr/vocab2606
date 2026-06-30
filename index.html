@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10 題英文詞彙量快速估算測驗</title>
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --card: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --primary: #2f6f73;
+      --primary-dark: #24575a;
+      --border: #e5dfd3;
+      --accent: #f2b66d;
+      --danger: #b94a48;
+      --success: #3d7d55;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(920px, 92%);
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    h1, h2, h3 {
+      line-height: 1.3;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #e7f0ef;
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .info-box {
+      background: #fbf7ef;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .info-box ul {
+      padding-left: 20px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .button {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      background: var(--primary);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 800;
+      transition: 0.2s;
+      margin-top: 12px;
+    }
+
+    .button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .button.secondary {
+      background: #ece7dc;
+      color: var(--text);
+    }
+
+    .button.secondary:hover {
+      background: #ddd5c6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .progress-wrap {
+      margin-bottom: 24px;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #eee8dc;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      transition: width 0.25s ease;
+    }
+
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f1eee6;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .word {
+      font-size: clamp(2rem, 7vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin: 8px 0;
+      color: var(--primary-dark);
+    }
+
+    .sentence {
+      font-size: 1.15rem;
+      color: var(--text);
+      background: #fbf7ef;
+      border-left: 5px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-bottom: 22px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .option {
+      border: 2px solid var(--border);
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: left;
+      transition: 0.18s;
+    }
+
+    .option:hover {
+      border-color: var(--primary);
+      background: #f3faf8;
+    }
+
+    .option.selected {
+      border-color: var(--primary);
+      background: #e7f0ef;
+    }
+
+    .result-number {
+      font-size: clamp(2.4rem, 8vw, 4.8rem);
+      font-weight: 950;
+      color: var(--primary-dark);
+      letter-spacing: -0.06em;
+      margin: 12px 0;
+    }
+
+    .result-label {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #fff1db;
+      color: #7d4e12;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .mini-card {
+      background: #fbf7ef;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .answer-review {
+      margin-top: 24px;
+    }
+
+    .review-item {
+      border-top: 1px solid var(--border);
+      padding: 14px 0;
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 12px;
+    }
+
+    .correct {
+      color: var(--success);
+      font-weight: 900;
+    }
+
+    .wrong {
+      color: var(--danger);
+      font-weight: 900;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      padding: 16px;
+      border-radius: 16px;
+      background: #f1eee6;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .hero-grid,
+      .result-grid,
+      .options {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .review-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <!-- 首頁 -->
+    <section id="startPage" class="card">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">10 題快速估算</div>
+          <h1>英文詞彙量<br />快速估算測驗</h1>
+          <p>
+            透過 10 題不同難度的英文單字題，快速估算你的英文接受式詞彙量。
+            結果會以「詞彙量區間」呈現，適合作為學習參考。
+          </p>
+          <button class="button" onclick="startQuiz()">開始測驗</button>
+        </div>
+
+        <div class="info-box">
+          <h3>測驗說明</h3>
+          <ul>
+            <li>總共 10 題</li>
+            <li>每題一個英文單字與例句</li>
+            <li>請選出最接近的中文意思</li>
+            <li>完成後會估算你的大致詞彙量</li>
+            <li>本測驗不是正式檢定，結果僅供參考</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 測驗頁 -->
+    <section id="quizPage" class="card hidden">
+      <div class="progress-wrap">
+        <div class="progress-text">
+          <span id="questionCounter">第 1 / 10 題</span>
+          <span id="progressPercent">10%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="question-meta">
+        <span id="levelBadge" class="pill">Level 1</span>
+        <span id="frequencyBadge" class="pill">前 1,000 字族</span>
+      </div>
+
+      <div id="word" class="word">word</div>
+      <div id="sentence" class="sentence">Example sentence.</div>
+
+      <h3>這個單字的意思最接近：</h3>
+      <div id="options" class="options"></div>
+    </section>
+
+    <!-- 結果頁 -->
+    <section id="resultPage" class="card hidden">
+      <div class="badge">測驗完成</div>
+      <h2>你的英文詞彙量估算結果</h2>
+
+      <div id="resultLabel" class="result-label">中階閱讀者</div>
+      <div id="resultNumber" class="result-number">約 4,000–6,000 字族</div>
+
+      <p id="resultDescription"></p>
+
+      <div class="result-grid">
+        <div class="mini-card">
+          <strong>答對題數</strong>
+          <span id="correctCount">0 / 10</span>
+        </div>
+        <div class="mini-card">
+          <strong>穩定答對層級</strong>
+          <span id="stableLevel">Level 0</span>
+        </div>
+        <div class="mini-card">
+          <strong>建議目標</strong>
+          <span id="nextGoal">累積核心單字</span>
+        </div>
+      </div>
+
+      <h3>學習建議</h3>
+      <p id="studyAdvice"></p>
+
+      <button class="button" onclick="restartQuiz()">重新測驗</button>
+      <button class="button secondary" onclick="shareResult()">複製結果文字</button>
+
+      <div class="answer-review">
+        <h3>答題回顧</h3>
+        <div id="answerReview"></div>
+      </div>
+
+      <div class="footer-note">
+        本測驗採用 10 題分層抽樣方式，估算的是「接受式詞彙量」，也就是看到英文單字時理解意思的能力。
+        由於題數較少，結果適合作為學習參考，不宜視為正式檢定成績。
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const questions = [
+      {
+        level: 1,
+        band: "前 1,000 字族",
+        word: "borrow",
+        sentence: "Can I borrow your pen for a minute?",
+        options: ["借用", "購買", "丟棄", "修理"],
+        answer: "借用"
+      },
+      {
+        level: 2,
+        band: "1,001–2,000 字族",
+        word: "avoid",
+        sentence: "You should avoid drinking too much coffee at night.",
+        options: ["避免", "享受", "安排", "邀請"],
+        answer: "避免"
+      },
+      {
+        level: 3,
+        band: "2,001–3,000 字族",
+        word: "require",
+        sentence: "This job requires good communication skills.",
+        options: ["需要", "拒絕", "比較", "保存"],
+        answer: "需要"
+      },
+      {
+        level: 4,
+        band: "3,001–4,000 字族",
+        word: "consequence",
+        sentence: "Every decision has a consequence.",
+        options: ["後果", "收入", "地點", "證據"],
+        answer: "後果"
+      },
+      {
+        level: 5,
+        band: "4,001–5,000 字族",
+        word: "retain",
+        sentence: "The company tried to retain its best employees.",
+        options: ["留住", "懲罰", "模仿", "取消"],
+        answer: "留住"
+      },
+      {
+        level: 6,
+        band: "5,001–6,000 字族",
+        word: "reluctant",
+        sentence: "She was reluctant to talk about the problem.",
+        options: ["不情願的", "興奮的", "準確的", "昂貴的"],
+        answer: "不情願的"
+      },
+      {
+        level: 7,
+        band: "6,001–7,000 字族",
+        word: "subtle",
+        sentence: "There was a subtle difference between the two designs.",
+        options: ["細微的", "吵雜的", "危險的", "正式的"],
+        answer: "細微的"
+      },
+      {
+        level: 8,
+        band: "7,001–8,000 字族",
+        word: "resilient",
+        sentence: "A resilient person can recover quickly from difficulties.",
+        options: ["有復原力的", "粗心的", "短暫的", "依賴的"],
+        answer: "有復原力的"
+      },
+      {
+        level: 9,
+        band: "8,001–9,000 字族",
+        word: "ambiguous",
+        sentence: "The instructions were ambiguous, so many people were confused.",
+        options: ["模糊不清的", "非常嚴格的", "完全相同的", "值得信任的"],
+        answer: "模糊不清的"
+      },
+      {
+        level: 10,
+        band: "9,001–10,000 字族",
+        word: "meticulous",
+        sentence: "The editor made a meticulous review of the report.",
+        options: ["一絲不苟的", "衝動的", "臨時的", "無關的"],
+        answer: "一絲不苟的"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let userAnswers = [];
+
+    function startQuiz() {
+      currentQuestionIndex = 0;
+      userAnswers = [];
+      document.getElementById("startPage").classList.add("hidden");
+      document.getElementById("resultPage").classList.add("hidden");
+      document.getElementById("quizPage").classList.remove("hidden");
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = questions[currentQuestionIndex];
+
+      document.getElementById("questionCounter").textContent =
+        `第 ${currentQuestionIndex + 1} / ${questions.length} 題`;
+
+      const percent = Math.round(((currentQuestionIndex + 1) / questions.length) * 100);
+      document.getElementById("progressPercent").textContent = `${percent}%`;
+      document.getElementById("progressFill").style.width = `${percent}%`;
+
+      document.getElementById("levelBadge").textContent = `Level ${q.level}`;
+      document.getElementById("frequencyBadge").textContent = q.band;
+      document.getElementById("word").textContent = q.word;
+      document.getElementById("sentence").textContent = q.sentence;
+
+      const optionsEl = document.getElementById("options");
+      optionsEl.innerHTML = "";
+
+      q.options.forEach(option => {
+        const button = document.createElement("button");
+        button.className = "option";
+        button.textContent = option;
+        button.onclick = () => selectAnswer(option);
+        optionsEl.appendChild(button);
+      });
+    }
+
+    function selectAnswer(selectedOption) {
+      const q = questions[currentQuestionIndex];
+
+      userAnswers.push({
+        question: q,
+        selected: selectedOption,
+        isCorrect: selectedOption === q.answer
+      });
+
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function calculateResult() {
+      const correctTotal = userAnswers.filter(a => a.isCorrect).length;
+
+      let stableLevel = 0;
+      for (const answer of userAnswers) {
+        if (answer.isCorrect) {
+          stableLevel = answer.question.level;
+        } else {
+          break;
+        }
+      }
+
+      const higherCorrect = userAnswers.filter(a =>
+        a.question.level > stableLevel && a.isCorrect
+      ).length;
+
+      let estimatedLow = stableLevel * 1000;
+      let estimatedHigh = estimatedLow + 1000;
+
+      estimatedHigh += higherCorrect * 400;
+
+      if (correctTotal >= 8) {
+        estimatedLow = Math.max(estimatedLow, 8000);
+        estimatedHigh = 10000;
+      }
+
+      if (correctTotal <= 2) {
+        estimatedLow = 0;
+        estimatedHigh = 2500;
+      }
+
+      estimatedLow = Math.max(0, Math.round(estimatedLow / 500) * 500);
+      estimatedHigh = Math.min(10000, Math.round(estimatedHigh / 500) * 500);
+
+      return {
+        correctTotal,
+        stableLevel,
+        estimatedLow,
+        estimatedHigh
+      };
+    }
+
+    function getResultProfile(low, high, correctTotal) {
+      if (high <= 2500) {
+        return {
+          label: "基礎入門",
+          description: "你目前掌握的是較基礎的英文詞彙，適合先強化生活常用單字、基礎動詞與常見形容詞。",
+          advice: "建議從最高頻的 2,000 個核心單字開始，搭配簡短例句學習，不要只背中文意思。",
+          goal: "先累積 2,000 核心字"
+        };
+      }
+
+      if (high <= 4500) {
+        return {
+          label: "初中階學習者",
+          description: "你已具備一定的基礎詞彙量，可以理解簡單文章與日常英文，但遇到抽象詞或職場文章時可能會卡住。",
+          advice: "建議強化 3,000–4,000 字族，尤其是常見動詞、片語與抽象名詞。",
+          goal: "提升到 4,000 字族"
+        };
+      }
+
+      if (high <= 6500) {
+        return {
+          label: "中階閱讀者",
+          description: "你大約具備閱讀一般英文文章與職場英文的基礎能力，但在新聞、商業文章或長篇文本中仍可能遇到不少低頻詞。",
+          advice: "建議閱讀英文新聞、商業文章與 TED transcript，並累積搭配詞與片語用法。",
+          goal: "提升到 6,000 字族"
+        };
+      }
+
+      if (high <= 8500) {
+        return {
+          label: "中高階閱讀者",
+          description: "你的詞彙量已能支撐較多英文閱讀情境，包括新聞、商業內容與部分專業文章。",
+          advice: "建議開始整理低頻但實用的抽象名詞、學術動詞與職場常見表達。",
+          goal: "提升到 8,000 字族"
+        };
+      }
+
+      return {
+        label: "高階閱讀者",
+        description: "你的英文詞彙理解能力相當不錯，已接近能處理複雜文本的程度。不過本測驗只有 10 題，若要精準判斷仍需要更完整的測驗。",
+        advice: "建議閱讀長篇評論、研究摘要、專業報告，並補強語境判斷與精準用字。",
+        goal: "挑戰專業文本"
+      };
+    }
+
+    function showResult() {
+      document.getElementById("quizPage").classList.add("hidden");
+      document.getElementById("resultPage").classList.remove("hidden");
+
+      const result = calculateResult();
+      const profile = getResultProfile(
+        result.estimatedLow,
+        result.estimatedHigh,
+        result.correctTotal
+      );
+
+      document.getElementById("resultLabel").textContent = profile.label;
+      document.getElementById("resultNumber").textContent =
+        `約 ${result.estimatedLow.toLocaleString()}–${result.estimatedHigh.toLocaleString()} 字族`;
+
+      document.getElementById("resultDescription").textContent = profile.description;
+      document.getElementById("studyAdvice").textContent = profile.advice;
+      document.getElementById("correctCount").textContent =
+        `${result.correctTotal} / ${questions.length}`;
+      document.getElementById("stableLevel").textContent =
+        `Level ${result.stableLevel}`;
+      document.getElementById("nextGoal").textContent = profile.goal;
+
+      renderAnswerReview();
+    }
+
+    function renderAnswerReview() {
+      const reviewEl = document.getElementById("answerReview");
+      reviewEl.innerHTML = "";
+
+      userAnswers.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "review-item";
+
+        div.innerHTML = `
+          <div>
+            <strong>Q${index + 1}</strong><br />
+            <span class="${item.isCorrect ? "correct" : "wrong"}">
+              ${item.isCorrect ? "答對" : "答錯"}
+            </span>
+          </div>
+          <div>
+            <strong>${item.question.word}</strong>：${item.question.answer}<br />
+            <span>你的答案：${item.selected}</span>
+          </div>
+        `;
+
+        reviewEl.appendChild(div);
+      });
+    }
+
+    function restartQuiz() {
+      startQuiz();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function shareResult() {
+      const resultText = document.getElementById("resultNumber").textContent;
+      const label = document.getElementById("resultLabel").textContent;
+
+      const text = `我剛完成英文詞彙量快速估算測驗，結果是：${label}，${resultText}。`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("結果文字已複製，可以貼到社群或訊息中。");
+      }).catch(() => {
+        alert("複製失敗，請手動複製結果。");
+      });
+    }
+  </script>
+</body>
+</html>
